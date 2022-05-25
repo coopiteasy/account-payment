@@ -19,6 +19,9 @@ class Partner(models.Model):
         readonly=True,
         search="_search_customer_wallet_balance",
     )
+    is_customer_wallet_user = fields.Boolean(
+        string="Is Customer Wallet User",
+    )
 
     def get_topmost_parent_id(self):
         if not self.parent_id:

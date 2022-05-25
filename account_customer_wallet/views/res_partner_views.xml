@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='sales_purchases']/group" position="inside">
                 <group string="Customer Wallet" priority="99" name="customer_wallet">
+                    <field name="is_customer_wallet_user" />
                     <field name="customer_wallet_balance" widget="monetary" />
                 </group>
             </xpath>
@@ -20,6 +21,11 @@
         <field name="arch" type="xml">
             <xpath expr="filter[last()]" position="after">
                 <separator />
+                <filter
+                    name="is_customer_wallet_user"
+                    string="Is Customer Wallet User"
+                    domain="[('is_customer_wallet_user', '=', True)]"
+                />
                 <filter
                     name="customer_wallet_balance_nonzero"
                     string="Customer Wallet Balance Not Zero"
